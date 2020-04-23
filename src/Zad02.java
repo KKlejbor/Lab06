@@ -2,62 +2,44 @@ import javax.print.attribute.standard.MediaSize;
 
 public class Zad02 {
     public static void main(String[] args) {
-        String wyrażenieONP = "47 6 9 * +";
-        Stos<String> stosONP = new Stos<>();
-        String liczba = "";
+        Stos<Integer> stosONP = new Stos<>();
         int liczba1, liczba2;
         boolean NAN = false;
+
+        String wyrażenieONP = "47 6 9 * +";
         String[] tokeny = wyrażenieONP.split(" ");
 
         for (int i = 0; i < tokeny.length; i++) {
             String token = tokeny[i];
             switch (token){
-               /* case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
-                case '8':
-                case '9':
-                    liczba += znak;
-                    break;*/
-
-                /*case ' ':
-                    stosONP.dodajNaStos(liczba);
-                    liczba = "";
-                    break;*/
-
                 case "+":
 
-                    liczba2 = Integer.parseInt(stosONP.usuńZeStosu());
-                    liczba1 = Integer.parseInt(stosONP.usuńZeStosu());
-                    stosONP.dodajNaStos(Integer.toString(liczba1+liczba2));
+                    liczba2 = stosONP.usuńZeStosu();
+                    liczba1 = stosONP.usuńZeStosu();
+                    stosONP.dodajNaStos(liczba1+liczba2);
                     break;
 
                 case "-":
 
-                    liczba2 = Integer.parseInt(stosONP.usuńZeStosu());
-                    liczba1 = Integer.parseInt(stosONP.usuńZeStosu());
-                    stosONP.dodajNaStos(Integer.toString(liczba1-liczba2));
+                    liczba2 = stosONP.usuńZeStosu();
+                    liczba1 = stosONP.usuńZeStosu();
+                    stosONP.dodajNaStos(liczba1-liczba2);
                     break;
 
                 case "*":
 
-                    liczba2 = Integer.parseInt(stosONP.usuńZeStosu());
-                    liczba1 = Integer.parseInt(stosONP.usuńZeStosu());
-                    stosONP.dodajNaStos(Integer.toString(liczba1*liczba2));
+                    liczba2 = stosONP.usuńZeStosu();
+                    liczba1 = stosONP.usuńZeStosu();
+                    stosONP.dodajNaStos(liczba1*liczba2);
                     break;
 
                 case "/":
 
-                    liczba2 = Integer.parseInt(stosONP.usuńZeStosu());
-                    liczba1 = Integer.parseInt(stosONP.usuńZeStosu());
+                    liczba2 = stosONP.usuńZeStosu();
+                    liczba1 = stosONP.usuńZeStosu();
 
                     if(liczba2 != 0) {
-                        stosONP.dodajNaStos(Integer.toString(liczba1 / liczba2));
+                        stosONP.dodajNaStos(liczba1 / liczba2);
                     }
 
                     else {
@@ -67,7 +49,7 @@ public class Zad02 {
                     break;
 
                 default:
-                    stosONP.dodajNaStos(token);
+                    stosONP.dodajNaStos(Integer.parseInt(token));
             }
 
             if(NAN){
@@ -81,8 +63,12 @@ public class Zad02 {
                 stosONP.wydrukujStos();
                 break;
             }
-            stosONP.wydrukujStos();
-            System.out.println(i+"\n-----------------------");
+
+            /*stosONP.wydrukujStos();
+            System.out.println(i+". krok"+"\n-----------------------");*/
         }
+        System.out.println("Wyrażenie: " + wyrażenieONP);
+        System.out.println("Wynik działania: ");
+        stosONP.wydrukujStos();
     }
 }
