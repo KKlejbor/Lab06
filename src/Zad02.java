@@ -7,11 +7,12 @@ public class Zad02 {
         String liczba = "";
         int liczba1, liczba2;
         boolean NAN = false;
+        String[] tokeny = wyrażenieONP.split(" ");
 
-        for (int i = 0; i < wyrażenieONP.length(); i++) {
-            char znak = wyrażenieONP.charAt(i);
-            switch (znak){
-                case '0':
+        for (int i = 0; i < tokeny.length; i++) {
+            String token = tokeny[i];
+            switch (token){
+               /* case '0':
                 case '1':
                 case '2':
                 case '3':
@@ -22,36 +23,36 @@ public class Zad02 {
                 case '8':
                 case '9':
                     liczba += znak;
-                    break;
+                    break;*/
 
-                case ' ':
+                /*case ' ':
                     stosONP.dodajNaStos(liczba);
                     liczba = "";
-                    break;
+                    break;*/
 
-                case '+':
-//                    stosONP.dodajNaStos("+");
+                case "+":
+
                     liczba2 = Integer.parseInt(stosONP.usuńZeStosu());
                     liczba1 = Integer.parseInt(stosONP.usuńZeStosu());
                     stosONP.dodajNaStos(Integer.toString(liczba1+liczba2));
                     break;
 
-                case '-':
-//                    stosONP.dodajNaStos("-");
+                case "-":
+
                     liczba2 = Integer.parseInt(stosONP.usuńZeStosu());
                     liczba1 = Integer.parseInt(stosONP.usuńZeStosu());
                     stosONP.dodajNaStos(Integer.toString(liczba1-liczba2));
                     break;
 
-                case '*':
-//                    stosONP.dodajNaStos("*");
+                case "*":
+
                     liczba2 = Integer.parseInt(stosONP.usuńZeStosu());
                     liczba1 = Integer.parseInt(stosONP.usuńZeStosu());
                     stosONP.dodajNaStos(Integer.toString(liczba1*liczba2));
                     break;
 
-                case '/':
-//                    stosONP.dodajNaStos("/");
+                case "/":
+
                     liczba2 = Integer.parseInt(stosONP.usuńZeStosu());
                     liczba1 = Integer.parseInt(stosONP.usuńZeStosu());
 
@@ -66,7 +67,7 @@ public class Zad02 {
                     break;
 
                 default:
-                    break;
+                    stosONP.dodajNaStos(token);
             }
 
             if(NAN){
