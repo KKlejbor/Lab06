@@ -6,7 +6,8 @@ public class Zad02 {
         int liczba1, liczba2;
         boolean NAN = false;
 
-        String wyrażenieONP = "47 6 9 * +";
+//        String wyrażenieONP = "47 6 9 * +";
+        String wyrażenieONP = "3 11 4 2 - * + 15 3 8 + * + 1 -";
         String[] tokeny = wyrażenieONP.split(" ");
 
         for (int i = 0; i < tokeny.length; i++) {
