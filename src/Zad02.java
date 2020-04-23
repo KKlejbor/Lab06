@@ -1,4 +1,4 @@
-import javax.print.attribute.standard.MediaSize;
+import java.util.Arrays;
 
 public class Zad02 {
     public static void main(String[] args) {
@@ -6,8 +6,7 @@ public class Zad02 {
         int liczba1, liczba2;
         boolean NAN = false;
 
-//        String wyrażenieONP = "47 6 9 * +";
-        String wyrażenieONP = "3 11 4 2 - * + 15 3 8 + * + 1 -";
+        String wyrażenieONP = "3 7 4 2 - * + 2 3 8 + * + 1 -";
         String[] tokeny = wyrażenieONP.split(" ");
 
         for (int i = 0; i < tokeny.length; i++) {
@@ -55,11 +54,7 @@ public class Zad02 {
 
             if(NAN){
                 System.out.println("BŁĄD! Nie można dzielić przez zero!");
-                System.out.println(wyrażenieONP);
-                for (int j = 0; j < i; j++) {
-                    System.out.print(' ');
-                }
-                System.out.println("^");
+                System.out.println(Arrays.toString(tokeny));
                 System.out.println("Stos: ");
                 stosONP.wydrukujStos();
                 break;
@@ -68,8 +63,12 @@ public class Zad02 {
             /*stosONP.wydrukujStos();
             System.out.println(i+". krok"+"\n-----------------------");*/
         }
-        System.out.println("Wyrażenie: " + wyrażenieONP);
-        System.out.println("Wynik działania: ");
-        stosONP.wydrukujStos();
+
+        if(!NAN){
+            System.out.println("Wyrażenie: " + wyrażenieONP);
+            System.out.println("Wynik działania: ");
+            stosONP.wydrukujStos();
+        }
+
     }
 }
