@@ -9,6 +9,7 @@ public class Zad02 {
         String wyrażenieONP = "3 7 4 2 - * + 2 3 8 + * + 1 -";
         String[] tokeny = wyrażenieONP.split(" ");
 
+
         for (int i = 0; i < tokeny.length; i++) {
             String token = tokeny[i];
             switch (token){
